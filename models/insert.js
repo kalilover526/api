@@ -6,11 +6,11 @@ var insert=new Schema({
     category:{
         type:String,
         required:true,
-        unique:true
-    },
-     item :{      
+        unique:true},
+     item :[{
          type:String,
-        required:true
-    }
+         unique:true,
+         required:true
+     }]
 })
 module.exports=mongoose.model('insertion',insert)

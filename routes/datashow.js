@@ -2,7 +2,7 @@ var dbinsert=require('../models/insert')
 var mongoose=require('mongoose')
 
 var finditem=(req ,res)=>{
-    dbinsert.find({},(err,data)=>
+    dbinsert.findOne({category:req.body.category},(err,data)=>
 {
     if(err){
         res.json({

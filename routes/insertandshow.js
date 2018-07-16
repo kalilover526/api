@@ -18,7 +18,7 @@ exports.insert=(req,res)=>{
             }else if(!insData || insData==null){
                 new dbinsert({
                     category:req.body.category,
-                    item:req.body.item
+                    item:[req.body.item]
                 }).save((err,saveData)=>{
                     if(err){
                         res.json({
@@ -34,6 +34,7 @@ exports.insert=(req,res)=>{
                     }
                 })
             }else{
+            
                 res.json({
                     success:false,
                     msg:"Item already insterted"
