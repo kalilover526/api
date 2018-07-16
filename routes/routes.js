@@ -10,7 +10,7 @@ router.post('/getdata',findPerson)
 var update=require('./update')
 router.post('/update',update.update)
 
-var login=require('./loginandsignup')
-router.post('/signup',login.signup)
-router.post('/login',login.loginn)
+var reslogin=require('./loginandsignup')
+router.post('/signup',reslogin.signup)
+router.post('/login',reslogin.login)
 module.exports=router
