@@ -2,7 +2,7 @@ var dbinsert=require('../models/insert')
 var mongoose=require('mongoose')
 
 exports.insert=(req,res)=>{
-    if(!req.body.category||!req.body.item){
+    if(!req.body.category){
         res.json({
             success:false,
             msg:"plsease provide all the details"

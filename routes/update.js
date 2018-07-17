@@ -1,5 +1,5 @@
 var dblogin=require('../models/insert')
-exports.update=(req,res)=>{
+exports.additem=(req,res)=>{
     if(!req.body.category||!req.body.item){
         res.json({
             success:false,

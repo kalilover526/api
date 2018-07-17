@@ -3,12 +3,12 @@ var router=express.Router()
 //var tokenVerify=require('./token')
 
 
-var inserton=require('./insertandshow')
-router.post('/insert',inserton.insert)
-var findPerson=require('./datashow')
-router.post('/getdata',findPerson)
-var update=require('./update')
-router.post('/update',update.update)
+var inserton=require('./insertategory')
+router.post('/insertcategory',inserton.insertcategory)
+var finditem=require('./datashow')
+router.post('/getdata',finditem)
+var additem=require('./update')
+router.post('/additem',additem.additem)
 
 var reslogin=require('./loginandsignup')
 router.post('/signup',reslogin.signup)
