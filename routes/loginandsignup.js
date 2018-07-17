@@ -11,7 +11,7 @@ exports.signup= (req, res) => {
             msg: "Please enter all details"
         })
     } else {
-        dbLogin.findOne({ email: req.body.email  }, (err, loginData) => {
+        dbLogin.findOne({ email: req.body.email}, (err, loginData) => {
             if (err) {
                 res.json({
                     success: false,
