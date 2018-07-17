@@ -3,7 +3,7 @@ var router=express.Router()
 //var tokenVerify=require('./token')
 
 
-var inserton=require('./insertategory')
+var inserton=require('./insertcategory')
 router.post('/insertcategory',inserton.insertcategory)
 var finditem=require('./datashow')
 router.post('/getdata',finditem)
