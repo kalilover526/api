@@ -1,7 +1,7 @@
 var dbinsert=require('../models/insert')
 var mongoose=require('mongoose')
 
-exports.insert=(req,res)=>{
+exports.insetcategory=(req,res)=>{
     if(!req.body.category){
         res.json({
             success:false,
@@ -18,7 +18,7 @@ exports.insert=(req,res)=>{
             }else if(!insData || insData==null){
                 new dbinsert({
                     category:req.body.category,
-                    item:[req.body.item]
+                    item:[ ]
                 }).save((err,saveData)=>{
                     if(err){
                         res.json({
