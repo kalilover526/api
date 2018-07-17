@@ -6,7 +6,7 @@ var router=express.Router()
 var inserton=require('./insertcategory')
 router.post('/insertcategory',inserton.insertcategory)
 var finditem=require('./datashow')
-router.post('/getdata',finditem)
+router.post('/getdata',finditem.finditem)
 var additem=require('./update')
 router.post('/additem',additem.additem)
 
