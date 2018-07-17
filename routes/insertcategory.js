@@ -1,7 +1,7 @@
 var dbinsert=require('../models/insert')
 var mongoose=require('mongoose')
 
-exports.insetcategory=(req,res)=>{
+exports.insertcategory=(req,res)=>{
     if(!req.body.category){
         res.json({
             success:false,

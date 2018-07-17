@@ -1,7 +1,6 @@
 var dbinsert=require('../models/insert')
 var mongoose=require('mongoose')
-
-var finditem=(req ,res)=>{
+exports.finditem=(req ,res)=>{
     dbinsert.findOne({category:req.body.category},(err,data)=>
 {
     if(err){
@@ -19,4 +18,3 @@ var finditem=(req ,res)=>{
     }
 })
 }
-module.exports=finditem
