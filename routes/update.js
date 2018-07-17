@@ -14,7 +14,7 @@ exports.additem=(req,res)=>{
                 })
             }else if(!data){
                 res.json({
-                    success:fasle,
+                    success:false,
                     msg:"usernot found"
                 })
             } else{
