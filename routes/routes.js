@@ -5,8 +5,15 @@ var router=express.Router()
 
 var inserton=require('./insertcategory')
 router.post('/insertcategory',inserton.insertcategory)
+
+//item searching 
 var findItem=require('./datashow')
 router.post('/getdata',findItem.finditem)
+
+var alldata=require('./datashow')
+router.get('/alldata',alldata.findcategory)
+
+
 var addItem=require('./update')
 router.post('/additem',addItem.additem)
 
