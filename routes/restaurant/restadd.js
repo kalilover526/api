@@ -1,36 +1,54 @@
-var resinsert=require('../../models/resadd')
+var dbins=require('../../models/resadd')
 var mongoose=require('mongoose')
+var cat;
 
 exports.restinsert=(req,res)=>{
-    if(!req.body.category.catname){
+    
+    if(!req.body.category.catname)
+    {
         res.json({
             success:false,
-            msg:"please provide all the details"
+            msg:"Please provide all the details"
         })
-    }else{
-
-        resinsert.findOne({catname:req.body.category.catname},(err,resData)=>{
+    }
+    else
+    {cat=JSON.parse(req.body.category)
+        dbins.findOne({catname:req.body.category[0].catname},(err,inData)=>{
             if(err){
                 res.json({
                     success:false,
-                    msg:"something went wrong"
+                    msg:"somethig went wrong"
                 })
-            }else if(!resData||resData==null)
+            }else if(!inData||inData==null)
             {
-                new resinsert({
-                    
-                        category:{
-                          catname:req.body.catname,
-                           item:{
-                              itname:req.body.itname,
-                               price:req.body.price,
-                               image:req.body.image,
-                               variant:req.body.variant
-                           }
-                        }   
-                       
+                new dbins({
+                    category:{
+                        catname:req.body.catname,
+                        item:[],
+                        price:[],
+                        image:[],
+                        variant:[]
+                    }
+                }).save((err,saveData)=>{
+                    if(err){
+                        res.json({
+                            success:false,
+                            msg:"Please try after some time"
+                        })
+                    }else{
+                        res.json({
+                            success:true,
+                            msg:"data inserted",
+                            data:saveData
+                        })
+                    }
+                })
+            }else{
+                res.json({
+                    success:false,
+                    msg:"item already inserted"
                 })
             }
         })
     }
-}
+}   
