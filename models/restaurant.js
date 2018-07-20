@@ -25,7 +25,32 @@ password:{
    type:String,
    required:true,
 
-}
+},
+address:[{
+  city:{
+      type:String,
+      required:true
+  },
+  pincode:{
+      type:Number,
+      requied:true,
+     
+  },
+  street:{  type:String,
+    required:true
+},
+  lane:{
+      type:String,
+      required:true
+  },
+  landmark:{
+      type:String,
+      required:true
+  },
+
+}],
+
+
 })
 
 module.exports=mongoose.model('restsign',restsign)
