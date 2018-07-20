@@ -19,8 +19,12 @@ router.post('/restadd',restadd.restinsert)
 //global adding of data
 var addItem=require('./update')
 router.post('/additem',addItem.additem)
-
-var reslogin=require('./loginandsignup')
-router.post('/signup',reslogin.signup)
-router.post('/login',reslogin.login)
+//restaurant login and signup
+var restsign=require('./restaurant/restsign')
+router.post('/restsign',restsign.rsignup)
+router.post('/restlogin',restsign.restlogin)
+//customer login
+var custlogin=require('./loginandsignup')
+router.post('/signup',custlogin.signup)
+router.post('/login',custlogin.login)
 module.exports=router
