@@ -29,7 +29,7 @@ exports.rsingup=(req,res)=>{
                         lane:req.body.lane
 
                     }
-                }).save(err,resData)=>{
+                }).save((err,resData)=>{
                     if(err){
 
                         res.json({
