@@ -3,37 +3,37 @@ var Schema=mongoose.Schema
 
 var resadd= new Schema({
 
-   food:[{
+   
     category:[{
-       catname:{
+    
             type:String,
             requied:true,
             unique:true
-        },
+        }],
         item:[{
-        itname:{
+        
              type:String,
              required:true,
-         },
-         price:{
+         }],
+         price:[{
              type:Number,
              requied:true,
-         },
-         image:{
+         }],
+         image:[{
              type:String,
              required:true
-         },
-         variant:{
+         }],
+         variant:[{
              type:String,
              required:true
-         }
+         }]
 
-        }]
+    
 
 
     }]
 
 
 
-   }]
+
 })

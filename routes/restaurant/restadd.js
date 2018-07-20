@@ -9,7 +9,7 @@ exports.restinsert=(req,res)=>{
         })
     }else{
 
-        resinsert.findOne({catname:req.body.food.category.catname},(err,resData)=>{
+        resinsert.findOne({catname:req.body.category.catname},(err,resData)=>{
             if(err){
                 res.json({
                     success:false,
@@ -18,7 +18,7 @@ exports.restinsert=(req,res)=>{
             }else if(!resData||resData==null)
             {
                 new resinsert({
-                       food:{
+                    
                         category:{
                           catname:req.body.catname,
                            item:{
@@ -28,7 +28,7 @@ exports.restinsert=(req,res)=>{
                                variant:req.body.variant
                            }
                         }   
-                       }
+                       
                 })
             }
         })
