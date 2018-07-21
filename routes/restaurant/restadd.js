@@ -3,8 +3,9 @@ var mongoose=require('mongoose')
 var cat;
 
 exports.restinsert=(req,res)=>{
+    {cat=req.body.catname;
+    if(!cat)
     
-    if(!req.body.category.catname)
     {
         res.json({
             success:false,
@@ -12,8 +13,7 @@ exports.restinsert=(req,res)=>{
         })
     }
     else
-    {cat=JSON.parse(req.body.category)
-        dbins.findOne({catname:req.body.category[0].catname},(err,inData)=>{
+        dbins.findOne({catname:cat},(err,inData)=>{
             if(err){
                 res.json({
                     success:false,
@@ -29,6 +29,7 @@ exports.restinsert=(req,res)=>{
                         image:[],
                         variant:[]
                     }
+                
                 }).save((err,saveData)=>{
                     if(err){
                         res.json({

@@ -3,7 +3,7 @@ var Schema=mongoose.Schema
 
 var resadd= new Schema({
 
-   category:{
+   category:[{
        catname:{
            type:String,
            required:true,
@@ -23,7 +23,8 @@ var resadd= new Schema({
        varriant:[{
            type:String
        }]
-   }
+    } ]
 
 
 })  
+module.exports=mongoose.model('restcat',resadd)
