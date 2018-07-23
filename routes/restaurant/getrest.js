@@ -1,6 +1,5 @@
 var dbshow=require('../../models/restaurant')
 var mongoose=require('mongoose')
-var x;
 exports.restd=(req,res)=>{
     dbshow.find({},(err,data)=>{
         if(err){

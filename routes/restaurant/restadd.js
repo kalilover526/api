@@ -1,4 +1,4 @@
-var dbins=require('../../models/resadd')
+var dbins=require('../../models/restaurant')
 var mongoose=require('mongoose')
 var cat;
 
