@@ -26,6 +26,9 @@ router.post('/restlogin',restsign.restlogin)
 //getrest
 var restdata=require('../routes/restaurant/getrest')
 router.get('/getrest',restdata.restd)
+//getitems for restaurnat showing the data of items and category
+var resitem=require('../routes/restaurant/getitems')
+router.post('/getitems',resitem.showcat)
 //customer login
 var custlogin=require('./loginandsignup')
 router.post('/signup',custlogin.signup)
