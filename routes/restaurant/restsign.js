@@ -2,7 +2,7 @@ var restsign=require('../../models/restaurant')
 var mongoose=require('mongoose')
 
 exports.rsignup=(req,res)=>{
-    if(!req.body.name||!req.body.phone||!req.body.email||!req.body. rest_name||!req.body.password)
+    if(!req.body.name||!req.body.phone||!req.body.email||!req.body.rest_name||!req.body.password)
     {
         res.json({
             success:false,
@@ -41,7 +41,7 @@ exports.rsignup=(req,res)=>{
 
                         res.json({
                             success:false,
-                            msg:"please try after sometime"
+                            msg:err
                         })
                     }
                     else{

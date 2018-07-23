@@ -26,35 +26,35 @@ password:{
    required:true,
 
 },
-address:[{
-  city:{
-      type:String,
-      required:true
-  },
-  pincode:{
-      type:Number,
-      requied:true,
+// address:[{
+//   city:{
+//       type:String,
+//       required:true
+//   },
+//   pincode:{
+//       type:Number,
+//       requied:true,
      
-  },
-  street:{  type:String,
-    required:true
-},
-  lane:{
-      type:String,
-      required:true
-  },
-  landmark:{
-      type:String,
-      required:true
-  },
+//   },
+//   street:{  type:String,
+//     required:true
+// },
+//   lane:{
+//       type:String,
+//       required:true
+//   },
+//   landmark:{
+//       type:String,
+//       required:true
+//   },
 
-}],
+// }
+// ],
 
 category:[{
     catname:{
         type:String,
-        required:true,
-        unique:true
+    
     },
     item:[{
         type:String,

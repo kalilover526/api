@@ -14,8 +14,8 @@ var alldata=require('./datashow')
 router.get('/alldata',alldata.findcategory)
 
 //restaurant adding the data
-var restadd=require('./restaurant/restsign')
-router.post('/restadd',restadd.rsignup)
+var restadd=require('./restaurant/restadd')
+router.post('/restadd',restadd.restinsert)
 //global adding of data
 var addItem=require('./update')
 router.post('/additem',addItem.additem)
