@@ -23,6 +23,9 @@ router.post('/additem',addItem.additem)
 var restsign=require('./restaurant/restsign')
 router.post('/restsign',restsign.rsignup)
 router.post('/restlogin',restsign.restlogin)
+//getrest
+var restdata=require('../routes/restaurant/getrest')
+router.get('/getrest',restdata.restd)
 //customer login
 var custlogin=require('./loginandsignup')
 router.post('/signup',custlogin.signup)

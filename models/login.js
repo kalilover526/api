@@ -26,4 +26,4 @@ var login=new Schema({
     }
 }) 
 
-module.exports=mongoose.model('user',login)
+module.exports=mongoose.model('customer',login)

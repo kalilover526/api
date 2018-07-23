@@ -53,4 +53,4 @@ address:[{
 
 })
 
-module.exports=mongoose.model('restsign',restsign)
+module.exports=mongoose.model('restaurant',restsign)

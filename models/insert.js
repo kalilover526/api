@@ -13,4 +13,4 @@ var insert=new Schema({
         //  required:true
      }]
 })
-module.exports=mongoose.model('insertion',insert)
+module.exports=mongoose.model('globaldata',insert)
