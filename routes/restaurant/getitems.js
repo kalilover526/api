@@ -24,10 +24,9 @@ exports.showcat=(req,res)=>{
                     if(catg[i]._id==req.body.catid){
                         obj=catg[i];
                         flag=1;
-                        //console.log("mil gyi")
+                    
                     }
-                   // console.log("----------",i,"---------")
-                }
+                                  }
                 if(flag==1){
                 res.json({
                     success:true,
