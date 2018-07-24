@@ -2,7 +2,14 @@ var dbshow=require('../../models/restaurant')
 var mongoose=require('mongoose')
 var restname=[]
 var ids=[]
+
 exports.restd=(req,res)=>{
+if(!req.body.pin){
+    res.json({
+        success:false,
+        msg:'Please provide a pincode for searching'
+    })
+}else{
     dbshow.find({},(err,data)=>{
         if(err){
             res.json({
@@ -18,8 +25,9 @@ exports.restd=(req,res)=>{
                 success:true,
                 msg:"restaurantdata",
                name:restname,
-            id:ids})
+            id:ids,
+        })
         restname=[],ids=[]  
         }
-    })
+    })}
 }

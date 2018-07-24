@@ -50,7 +50,7 @@ address:[{
 
 }
 ],
-
+coverage:[{type:Number}],
 category:[{
     catname:{
         type:String,

@@ -23,9 +23,9 @@ router.post('/additem',addItem.additem)
 var restsign=require('./restaurant/restsign')
 router.post('/restsign',restsign.rsignup)
 router.post('/restlogin',restsign.restlogin)
-//getrest
+//====================restaurant data==================
 var restdata=require('../routes/restaurant/getrest')
-router.get('/getrest',restdata.restd)
+router.post('/getrest',restdata.restd)
 //getitems for restaurnat showing the data of items and category
 var rescat=require('../routes/restaurant/getcat')
 router.post('/getcat',rescat.restdata)
@@ -37,12 +37,14 @@ router.post('/pushcat',pusHcat.pushcat)
 
 
 
-
-
+//=============restaurant adding coverage area==============
+var cover=require('../routes/restaurant/coverage')
+router.post('/cover',cover.addpin)
+//================================================================
 
 var resitem=require('../routes/restaurant/getitems')
 router.post('/getitems',resitem.showcat)
-//customer login
+//===================customer login======================================
 var custlogin=require('./loginandsignup')
 router.post('/signup',custlogin.signup)
 router.post('/login',custlogin.login)

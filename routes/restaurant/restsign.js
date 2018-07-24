@@ -33,7 +33,8 @@ exports.rsignup=(req,res)=>{
                         street:req.body.street,
                         lane:req.body.lane
 
-                    }
+                    },
+                    coverage:[req.body.pincode]
                 }).save((err,resData)=>
                 {
                     if(err)
