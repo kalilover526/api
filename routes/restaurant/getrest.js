@@ -9,7 +9,7 @@ exports.restd=(req,res)=>{
                 success:false,
                 msg:"No data"
             })
-        }else{console.log(data.length);
+        }else{
         for(let key in data){
             restname.push(data[key].rest_name)
             ids.push(data[key]._id)
