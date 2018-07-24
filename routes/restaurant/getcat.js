@@ -11,7 +11,7 @@ exports.restdata=(req,res)=>{
             res.json({
                 success:true,
                 msg:"restaurant category",
-            data:data
+            data:data[0]
             })
         }
     })

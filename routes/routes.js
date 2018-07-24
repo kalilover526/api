@@ -30,6 +30,16 @@ router.get('/getrest',restdata.restd)
 var rescat=require('../routes/restaurant/getcat')
 router.post('/getcat',rescat.restdata)
 
+//======================restaurant adding category using id==============================
+
+var pusHcat=require('../routes/restaurant/pushcat')
+router.post('/pushcat',pusHcat.pushcat)
+
+
+
+
+
+
 var resitem=require('../routes/restaurant/getitems')
 router.post('/getitems',resitem.showcat)
 //customer login
