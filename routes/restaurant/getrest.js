@@ -3,13 +3,9 @@ var mongoose=require('mongoose')
 var restname=[]
 var ids=[]
 
+
 exports.restd=(req,res)=>{
-if(!req.body.pin){
-    res.json({
-        success:false,
-        msg:'Please provide a pincode for searching'
-    })
-}else{
+
     dbshow.find({},(err,data)=>{
         if(err){
             res.json({
@@ -29,5 +25,5 @@ if(!req.body.pin){
         })
         restname=[],ids=[]  
         }
-    })}
+    })
 }
