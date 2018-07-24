@@ -3,7 +3,7 @@ var mongoose=require('mongoose')
 exports.restdata=(req,res)=>{
     dbcat.find({_id:req.body.id},(err,data)=>{
         if(err){
-            res.josn({
+            res.json({
                 success:false,
                 msg:"no data"
             })
@@ -11,7 +11,7 @@ exports.restdata=(req,res)=>{
             res.json({
                 success:true,
                 msg:"restaurant category",
-                category:data[0].category
+            data:data
             })
         }
     })
