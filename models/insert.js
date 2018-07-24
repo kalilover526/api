@@ -10,7 +10,7 @@ var insert=new Schema({
     },
      item :[{
          type:String,
-        //  required:true
+        
      }]
 })
 module.exports=mongoose.model('globaldata',insert)
