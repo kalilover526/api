@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 const PORT = process.env.port || config.port
 
 
-mongoose.connect('mongodb://localhost/mow',(err,data)=>{
+mongoose.connect(config.mongo,(err,data)=>{
     if(err){
         console.error("Database not connected..",err);
     }
