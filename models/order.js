@@ -10,7 +10,7 @@ var order=new Schema({
         categoryName:[{
             type:String,
         }],
-        varinat:{type:String},
+        variant:{type:String},
         datetime:{
             type:String
         },
@@ -19,11 +19,15 @@ var order=new Schema({
         }
  
     }],
-    status:[{
-        type:Number
-    }],
+    status:String,
     address:[{
-      type:String,
+      landmark:{
+          type:String,
+
+      },
+      street:{
+          type:String
+      }
 
     }]
 })

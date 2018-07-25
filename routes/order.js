@@ -14,8 +14,14 @@ exports.orderadd=(req,res)=>{
                 categoryName:req.body.categoryname,
                 variant:req.body.variant,
                 datetime:Date(),
+               
                 
-            }
+            },
+address:{
+    landmark:req.body.landmark,
+    street:req.body.street
+},
+status:"confirm"
         }).save((err,data)=>{
             if(err){
                 res.json({
