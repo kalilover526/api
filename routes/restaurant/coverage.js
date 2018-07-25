@@ -30,7 +30,7 @@ exports.addpin=(req,res)=>{
                         res.json({
                             success:true,
                             msg:"data inserted",
-                            data:data
+                            coverage:data.coverage
                         })
                     }
                 })

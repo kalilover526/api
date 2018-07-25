@@ -35,7 +35,9 @@ router.post('/getcat',rescat.restdata)
 var pusHcat=require('../routes/restaurant/pushcat')
 router.post('/pushcat',pusHcat.pushcat)
 
-
+//===============order file====================================================
+var Order=require('./order')
+router.post('/order',Order.orderadd)
 
 //=============restaurant adding coverage area==============
 var cover=require('../routes/restaurant/coverage')

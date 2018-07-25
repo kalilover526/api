@@ -27,7 +27,7 @@ exports.pushcat=(req,res)=>{cat=req.body.catname;
                    catname:cat,
                    item:req.body.item,
                    price:req.body.price,
-                   varriant:req.body.variant,
+                   variant:req.body.variant,
                    image:req.body.image
                }
                push.findOneAndUpdate({_id:req.body.id},{$push:{category:temp},},(err,data)=>{

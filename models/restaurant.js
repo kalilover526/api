@@ -67,7 +67,7 @@ category:[{
     image:[{
         type:String
     }],
-    varriant:[{
+    variant:[{
         type:String
     }]
  } ]
