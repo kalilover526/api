@@ -34,7 +34,10 @@ router.post('/getcat',rescat.restdata)
 
 var pusHcat=require('../routes/restaurant/pushcat')
 router.post('/pushcat',pusHcat.pushcat)
-
+//====================restaurant updating its own data=============================================
+//===================================================
+var data=require('../routes/restaurant/showbycoveage')
+router.post('/search',data.show)
 //===============order file====================================================
 var Order=require('./order')
 router.post('/order',Order.orderadd)

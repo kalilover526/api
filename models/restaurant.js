@@ -26,6 +26,10 @@ password:{
    required:true,
 
 },
+rest:{ 
+    type:String
+
+},
 address:[{
   city:{
       type:String,
