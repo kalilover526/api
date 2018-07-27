@@ -23,7 +23,24 @@ var login=new Schema({
         type:String,
         required:true,
         
+    },
+    token:{
+        type:String   
+    },
+    active:{
+        type:Boolean
     }
+    ,
+    Createdon:{
+        type:Date
+    },
+    updatedon:{
+        type:Date
+    },
+    submitted:{
+        type:String
+    }
+
 }) 
 
 module.exports=mongoose.model('customer',login)
