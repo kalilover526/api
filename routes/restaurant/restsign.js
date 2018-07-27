@@ -41,7 +41,8 @@ exports.rsignup=(req,res)=>{
 
                         res.json({
                             success:false,
-                            msg:err
+                            msg:"error check console",
+                            err:err
                         })
                     }
                     else{

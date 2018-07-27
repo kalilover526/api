@@ -58,7 +58,7 @@ coverage:[{type:Number}],
 category:[{
     catname:{
         type:String,
-    
+        
     },
     item:[{
         type:String,
