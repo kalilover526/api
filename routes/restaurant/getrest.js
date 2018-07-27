@@ -22,6 +22,7 @@ exports.restd=(req,res)=>{
                 msg:"restaurantdata",
                name:restname,
             id:ids,
+            // data:data
         })
         restname=[],ids=[]  
         }
