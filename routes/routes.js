@@ -46,7 +46,10 @@ router.post('/order',Order.orderadd)
 var cover=require('../routes/restaurant/coverage')
 router.post('/cover',cover.addpin)
 //================================================================
-
+// verify token of email
+var cverify=require('./verify')
+router.post('/verify',cverify.verify)
+//============================
 var resitem=require('../routes/restaurant/getitems')
 router.post('/getitems',resitem.showcat)
 //===================customer login======================================
