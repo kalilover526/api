@@ -1,4 +1,4 @@
-var add=require('../models/order')
+var add=require('../../models/order')
 var mongoose=require('mongoose')
 exports.orderadd=(req,res)=>{
     if(!req.body.customerid||!req.body.restaurantid){

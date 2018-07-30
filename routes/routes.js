@@ -39,7 +39,7 @@ router.post('/pushcat',pusHcat.pushcat)
 var data=require('../routes/restaurant/showbycoveage')
 router.post('/search',data.show)
 //===============order file====================================================
-var Order=require('./order')
+var Order=require('../routes/restaurant/order')
 router.post('/order',Order.orderadd)
 
 //=============restaurant adding coverage area==============
@@ -49,11 +49,11 @@ router.post('/cover',cover.addpin)
 // verify token of email
 var cverify=require('./verify')
 router.post('/verify',cverify.verify)
-//============================
+//=====================================================================
 var resitem=require('../routes/restaurant/getitems')
 router.post('/getitems',resitem.showcat)
 //===================customer login======================================
-var custlogin=require('./loginandsignup')
+var custlogin=require('../routes/customer/loginandsignup')
 router.post('/signup',custlogin.signup)
 router.post('/login',custlogin.login)
 

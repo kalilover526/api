@@ -1,4 +1,4 @@
-var dbLogin = require('../models/login');
+var dbLogin = require('../../models/login');
 const jwt=require("jsonwebtoken");
 const randomstring = require("randomstring");
 var nodemailer = require('nodemailer');
