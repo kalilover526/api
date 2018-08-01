@@ -64,6 +64,32 @@ router.post('/custdel',Delet.deletedata)
 
 
 
+router.post('/username',verifyToken, function(req,res,next){
+    return res.status(200).json(decodedtoken.user);
+})
+
+var decodedtoken="";
+function verifyToken(req,res,next){
+let token=req.body.token;
+jwt.verify(token, 'sparks2k16',function(err,tokendata) {
+    if(err)
+    {
+        res.json({
+            msg: "error"
+        })
+    }
+    else{
+        decodedtoken = tokendata;
+        res.json({
+            msg: decodedtoken.user
+        })
+    }
+})
+}
+
+
+
+
 
 
 
