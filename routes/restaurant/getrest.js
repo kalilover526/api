@@ -6,7 +6,7 @@ var phones=[]
 var add=[]
 var web=[]
 var systime
-var times
+var times=[]
 
 var restTime
 
