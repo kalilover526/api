@@ -26,6 +26,13 @@ exports.rsignup=(req,res)=>{
                     password:req.body.password,
                     phone:req.body.phone,
                     rest_name:req.body.rest_name,
+                    website:req.body.website,
+                    timming:{
+                   openingHour:req.body.openhour,
+                   openingMinute:req.body.openminute,
+                   closingHour:req.body.closehour,
+                   closingMinute:req.body.closeminute
+                    },
                     address:{
                         city:req.body.city,
                         landmark:req.body.landmark,

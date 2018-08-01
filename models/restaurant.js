@@ -11,6 +11,24 @@ var restsign=new Schema({
         requied:true,
         unique:true
     },
+    website:{
+                type:String
+
+    },
+    timming:{
+openingHour:{
+    type:Number
+},
+openingMinute:{
+    type:Number
+},
+closingHour:{
+    type:Number
+},
+closingMinute:{
+    type:Number
+}
+    },
     rest_name:{
         type:String,
         required:true,
