@@ -6,6 +6,7 @@ var phones=[]
 var add=[]
 var web=[]
 var systime
+var times
 
 var restTime
 
@@ -24,6 +25,7 @@ exports.restd=(req,res)=>{
             phones.push(data[key].phone)
             add.push(data[key].address)
             web.push(data[key].website)
+            times.push(data[key].timming)
             systime=Date().slice(16,21).split(":")
             restTime=data[key].timming
             
@@ -38,12 +40,13 @@ exports.restd=(req,res)=>{
             phone:phones,
             address:add,
             websites:web,
-            systim:restTime
+            systim:restTime,
+            time:times
        
             
 
         })
-        restname=[],ids=[]  ,phones=[],add=[],web=[]
+        restname=[],ids=[]  ,phones=[],add=[],web=[],times=[]
         }
     })
 }
