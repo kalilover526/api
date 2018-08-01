@@ -27,12 +27,8 @@ exports.rsignup=(req,res)=>{
                     phone:req.body.phone,
                     rest_name:req.body.rest_name,
                     website:req.body.website,
-                    timming:{
-                   openingHour:req.body.openhour,
-                   openingMinute:req.body.openminute,
-                   closingHour:req.body.closehour,
-                   closingMinute:req.body.closeminute
-                    },
+                   openingTime:req.body.openingTime,
+                   closingTime:req.body.closingTime,
                     address:{
                         city:req.body.city,
                         landmark:req.body.landmark,
@@ -41,7 +37,8 @@ exports.rsignup=(req,res)=>{
                         lane:req.body.lane
 
                     },
-                    coverage:[req.body.pincode]                }).save((err,resData)=>
+                   coverage:[req.body.pincode]             
+                   }).save((err,resData)=>
                 {
                     if(err)
                     {

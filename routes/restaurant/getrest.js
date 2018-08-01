@@ -5,10 +5,8 @@ var ids=[]
 var phones=[]
 var add=[]
 var web=[]
-var systime
-var times=[]
 
-var restTime
+var flag,status=[]
 
 exports.restd=(req,res)=>{
 
@@ -25,12 +23,36 @@ exports.restd=(req,res)=>{
             phones.push(data[key].phone)
             add.push(data[key].address)
             web.push(data[key].website)
-            times.push(data[key].timming)
-            systime=Date().slice(16,21).split(":")
-            restTime=data[key].timming
+             let systime=Date().slice(16,21).split(":")
             
-
-
+            let temp=(parseInt(systime[0])*100)+parseInt(systime[1])
+            // console.log(temp)
+            let openingTime=data[key].openingTime
+            let closingTime=data[key].closingTime
+            if(openingTime==closingTime){
+                flag="open"
+            }
+            else if(openingTime<closingTime){
+                if(temp>openingTime&&temp<closingTime){
+                    flag="open"
+                }
+                else{
+                    flag="closed"
+                }
+            }
+            else if(openingTime>closingTime){
+                if((temp>openingTime) && (temp<=2359)){
+                    flag="open"
+                }
+                else if((temp>=0)&&(temp<closingTime)){
+                    flag="open"
+                }
+                else{
+                    flag="closed"
+                }
+            }
+            status.push(flag)
+            //console.log("openingTime----------",openingTime,"closingTime--------",closingTime,"systime--",temp,"flag------",flag,"---------")
         }
             res.json({
                 success:true,
@@ -40,13 +62,12 @@ exports.restd=(req,res)=>{
             phone:phones,
             address:add,
             websites:web,
-            systim:restTime,
-            
+            status:status
        
             
 
         })
-        restname=[],ids=[]  ,phones=[],add=[],web=[],times=[]
+        restname=[],ids=[]  ,phones=[],add=[],web=[],times=[],status=[]
         }
     })
 }

@@ -15,19 +15,13 @@ var restsign=new Schema({
                 type:String
 
     },
-    timming:{
-openingHour:{
-    type:Number
-},
-openingMinute:{
-    type:Number
-},
-closingHour:{
-    type:Number
-},
-closingMinute:{
-    type:Number
-}
+    openingTime:{
+        type:Number,
+        required:true
+    },
+    closingTime:{
+        type:Number,
+        required:true
     },
     rest_name:{
         type:String,
