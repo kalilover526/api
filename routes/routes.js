@@ -1,6 +1,7 @@
 var express=require('express')
 var router=express.Router()
-//var tokenVerify=require('./token')
+var tokenVerify=require('./token')
+var jwt=require('jsonwebtoken')
 
 
 var inserton=require('./insertcategory')
