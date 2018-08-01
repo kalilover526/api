@@ -48,7 +48,7 @@ rest:{
     type:String
 
 },
-address:[{
+address:{
   city:{
       type:String,
       required:true
@@ -71,7 +71,7 @@ address:[{
   },
 
 }
-],
+,
 coverage:[{type:Number}],
 category:[{
     catname:{
