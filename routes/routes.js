@@ -76,7 +76,7 @@ jwt.verify(token, 'sparks2k16',function(err,tokendata) {
     if(err)
     {
         res.json({
-            msg: "error"
+            msg: "error",
             error:err
         })
     }
@@ -84,7 +84,7 @@ jwt.verify(token, 'sparks2k16',function(err,tokendata) {
         decodedtoken = tokendata;
         res.json({
             msg: decodedtoken.user,
-            tokendata=tokendata
+            tokens:tokendata
         })
     }
 })
