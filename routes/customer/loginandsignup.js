@@ -3,7 +3,10 @@ const jwt=require("jsonwebtoken");
 const randomstring = require("randomstring");
 var nodemailer = require('nodemailer');
 require('dotenv').config();
+var express=require('express')
+var router=express.Router()
 const tokenstring=randomstring.generate();
+var bcrypt=require('bcrypt');
 
 exports.signup= (req, res) => {
     if (!req.body.name || !req.body.email ||!req.body.phone|| !req.body.password) {
@@ -26,7 +29,8 @@ exports.signup= (req, res) => {
                     name: req.body.name,
                     email: req.body.email,
                     phone: req.body.phone,
-                    password: req.body.password,
+                    //this hashpassword fn is imported from login.js
+                    password: dbLogin.hashPassword(req.body.password)  ,
                     Createdon: Date.now(),
                     updatedon:Date.now(),
                     token: tokenstring,
@@ -103,48 +107,31 @@ exports.login = (req, res) => {
             success: false,
             msg: "Please enter all details."
         })
-    } else {
+    } 
+    
+    
+    
+    else {
         dbLogin.findOne({ email: req.body.email }, (err, login) => {
             if (err) {
                 res.json({
                     success: false,
                     msg: "Please try after some time."
                 })
-            } else if (!login || login == null) {
+    
+            }
+            else  if (!login || login == null) {
                 res.json({
                     success: false,
                     msg: "Please register first."
                 })
-            } else if (login.password != req.body.password) {
-                res.json({
-                    success: false,
-                    msg: "Incorrect Password"
-                })
-             
-            } else if(login.active == false) 
+        }
+           
+           else if(bcrypt.compareSync(req.body.password , login.password)==true)
             {
-                res.json({
-                    success:false,
-                    msg:"please"
-                })
-            }
-            else {
-                const tokenData = {
-                    name: login.name,
-                    email: login.email
-                }
-                jwt.sign({tokenData}, 'sparks2k18', (err, token) =>
-               { res.json({
-                    success: true,
-                    token: token,
-                    msg: "Login done" 
-                });
-            }
-            );
-                // var date=Date.now();
-                // res.json({
-                //     msg:date
-                // })
+                 // to fill the schema column updatedon
+                    var date=Date.now();
+                
             dbLogin.findOneAndUpdate({email:req.body.email},{$set: {updatedon:Date.now()}},(err,data)=>{
                
                 if(err){
@@ -152,9 +139,111 @@ exports.login = (req, res) => {
                         msg:"yup"
                     })
                 }
-            })                
+            })   
+         ///////////////////////////////////
+         // to check wheater the account is active or not
+                if(login.active == false)
+                {
+                    res.json({
+                        msg: "please"
+                    })
+                }
+
+                else{
+                        
+                    // main work fter successful login and active acccunts
+                   
+                      let token = jwt.sign({user:login.email}, 'sparks2k16' ,{expiresIn: '3h'})
+                       
+                        res.json({
+                            token: token,
+                            msg: token
+                        })
+                        
+                        
+                   
+
+                 
+
+
+
+
+                    
+
+
+
+                }
+            } 
+            else(
+                res.json({
+                    msg:"password is inccorect"
+                })
+            )
+           
+        })
+    }
+}
+
+    function verifyToken(req,res,next){
+        let token=req.query.token;
+        jwt.verify(token, 'sparks2k16',function(err,tokendata) {
+            if(err)
+            {
+                res.json({
+                    msg:err
+                })
+            }
+            else{
+
             }
         })
     }
+     
 
-}
+
+
+
+             
+            // if (err) {
+            //     res.json({
+            //         success: false,
+            //         msg: "Please try after some time."
+            //     })
+            // } else  if (!login || login == null) {
+            //         res.json({
+            //             success: false,
+            //             msg: "Please register first."
+            //         })
+            // }
+            // } else if (dd.isValid(req.body.password)) {
+            //     res.json({
+            //         success: false,
+            //         msg: "password is correct"
+            //     })
+             
+            // } else if(login.active == false) 
+            // {
+            //     res.json({
+            //         success:false,
+            //         msg:"please"
+            //     })
+            // }
+            // else {
+
+                
+            
+            // // );
+            // //     // var date=Date.now();
+            // //     // res.json({
+            // //     //     msg:date
+            // //     // })
+            // dbLogin.findOneAndUpdate({email:req.body.email},{$set: {updatedon:Date.now()}},(err,data)=>{
+               
+            //     if(err){
+            //         res.json({
+            //             msg:"yup"
+            //         })
+            //     }
+            // })                
+            // }
+       
