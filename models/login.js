@@ -1,5 +1,7 @@
 var mongoose=require('mongoose')
 var Schema=mongoose.Schema
+var bcrypt=require('bcrypt')
+
 
 
 
@@ -42,5 +44,9 @@ var login=new Schema({
     }
 
 }) 
+login.statics.hashPassword= function hashPassword(password){
+    return bcrypt.hashSync(password,10)
+}
+
 
 module.exports=mongoose.model('customer',login)
